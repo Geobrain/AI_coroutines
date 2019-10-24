@@ -4,13 +4,11 @@ using Pixeye.Actors;
 using UnityEngine;
 
 
-public sealed class ComponentMob
+public sealed class ComponentMove
 {
     //public Legat legat;
 	//public Agent agent;
-	public string aaa = "OnWalk";
-	public string qqq = "qqq";
-	public string www = "www";
+	public Vector3 direction;
 
 }
 
@@ -20,7 +18,7 @@ public static partial class UtilsComponent
 {
     
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void SetCacheEnable(this ComponentMob component, in ent entity)
+    public static void SetCacheEnable(this ComponentMove component, in ent entity)
     {
         //component.collBox = entity.transform.GetComponent<BoxCollider2D>();
     }	
@@ -32,13 +30,13 @@ public static partial class UtilsComponent
 
 static partial class component
 	{
-		public const string Mob = "ComponentMob";
-		public static ref ComponentMob ComponentMob(in this ent entity) => ref StorageComponentMob.components[entity.id];
+		public const string Move = "ComponentMove";
+		public static ref ComponentMove ComponentMove(in this ent entity) => ref StorageComponentMove.components[entity.id];
 	}
 
-	sealed class StorageComponentMob : Storage<ComponentMob>
+	sealed class StorageComponentMove : Storage<ComponentMove>
 	{
-		public override ComponentMob Create() => new ComponentMob();
+		public override ComponentMove Create() => new ComponentMove();
 		public override void Dispose(indexes disposed)
 		{
 			foreach (var id in disposed)

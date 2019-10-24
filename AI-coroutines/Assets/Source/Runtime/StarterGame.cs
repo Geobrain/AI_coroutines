@@ -11,8 +11,10 @@
 		// use this method to provide processors and initializing stuff.
 		protected override void Setup()
 		{
-			Entity.Create(Model.Mob);
+			//Actor.Create(Model.Mob);
 			
+			
+			Add<ProcessorMove>();
 			Add<ProcessorMob>();
 			Add<ProcessorAI>();
 		}

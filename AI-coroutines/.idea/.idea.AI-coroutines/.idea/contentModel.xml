@@ -1,16 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\[Projects]\AI_coroutines\AI-coroutines" t="IncludeRecursive">
       <e p="AI-coroutines.sln" t="IncludeFlat" />
       <e p="Assets" t="Include">
+        <e p="ActorPawn.cs" t="Include" />
         <e p="ComponentAI.cs" t="Include" />
         <e p="ComponentMob.cs" t="Include" />
+        <e p="ComponentMove.cs" t="Include" />
         <e p="Model.cs" t="Include" />
         <e p="ModelMob.cs" t="Include" />
         <e p="ModelMobAI.cs" t="Include" />
         <e p="ProcessorAI.cs" t="Include" />
         <e p="ProcessorMob.cs" t="Include" />
+        <e p="ProcessorMove.cs" t="Include" />
         <e p="Source" t="Include">
           <e p="Runtime" t="Include">
             <e p="Common" t="Include">
