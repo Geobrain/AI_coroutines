@@ -14,24 +14,18 @@ sealed partial class ModelAI {
 		
 		#region AI_Walk
 		
-		ref var beh0 = ref cAI0.AddBehaviour(Tag.AI_AAA, (entWith, entAnother, behName) => AI_AAA(entWith, entAnother, behName));
-		beh0.predicateTrigger = ent => ent.EnableBehaviour(Tag.AI_AAA);
+		ref var beh0 = ref cAI0.AddBehaviour(Tag.AI_Walk, (entWith, entAnother, behName) => AI_Walk(entWith, entAnother, behName));
+		beh0.predicateTrigger = ent => ent.EnableBehaviour(Tag.AI_Walk);
 		beh0.Kill = ent =>
 		{
-			// Kill только если нужны дополнительные действия внутри этого поведения перед тем, как поведение будет уничтожено другим с более высоким приоритетом
 			Debug.Log("поведение AI_AAA прекратило работу");
 			ent.KillBehaviour();
 			ent.Remove<ComponentMove>();
-			//if (ent.Get(out ComponentMoveRbImpulse cMoveRbImpulse))
-			//{
-			//	ent.Remove<ComponentMoveRbImpulse>();
-			//	ent.ComponentPhys().rb2D.velocity = Vector3.zero;
-			//}
 			return true;
 		};
 		
 		
-		IEnumerator AI_AAA(ent ent, ent entAnother = default, int behName = default)
+		IEnumerator AI_Walk(ent ent, ent entAnother = default, int behName = default)
 		{
 			var cMob = ent.ComponentMob();
 			Debug.Log(cMob.aaa);

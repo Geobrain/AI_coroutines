@@ -15,7 +15,7 @@ namespace Pixeye.Source
 		
 		
 		
-		[TagField] public const int AI_AAA = 4;
+		[TagField] public const int AI_Walk = 4;
 		[TagField] public const int AI_QQQ = 5;
 		[TagField] public const int AI_WWW = 6;
 	}
