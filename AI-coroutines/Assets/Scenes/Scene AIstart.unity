@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &622945359
 Transform:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 1499461061}
   - component: {fileID: 1499461062}
   m_Layer: 0
-  m_Name: Scene Setup
+  m_Name: Starter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,17 +190,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1499461060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e95e78a48b355094ebe4b03de06302f6, type: 3}
+  m_Script: {fileID: 11500000, guid: acef2cf2a5f673e49ad0947f71cc7c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScenesToKeep:
-  - sceneAsset: {fileID: 102900000, guid: ba81c98bb666b7d46afb064b34bff2de, type: 3}
-    sceneName: Scene Camera
-  - sceneAsset: {fileID: 102900000, guid: b1c1e3eb1cede744db636d5f7c880773, type: 3}
-    sceneName: Scene Kernel
-  SceneDependsOn:
-  - sceneAsset: {fileID: 102900000, guid: ba81c98bb666b7d46afb064b34bff2de, type: 3}
-    sceneName: Scene Camera
-  - sceneAsset: {fileID: 102900000, guid: b1c1e3eb1cede744db636d5f7c880773, type: 3}
-    sceneName: Scene Kernel
+  ScenesToKeep: []
+  SceneDependsOn: []
   nodes: []

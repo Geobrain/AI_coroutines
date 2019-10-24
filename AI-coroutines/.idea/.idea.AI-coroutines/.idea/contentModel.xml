@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\[Projects]\AI_coroutines\AI-coroutines" t="IncludeRecursive">
+      <e p="AI-coroutines.sln" t="IncludeFlat" />
+      <e p="Assets" t="Include">
+        <e p="ComponentAI.cs" t="Include" />
+        <e p="ComponentMob.cs" t="Include" />
+        <e p="Model.cs" t="Include" />
+        <e p="ModelMob.cs" t="Include" />
+        <e p="ModelMobAI.cs" t="Include" />
+        <e p="Plugins" t="Include">
+          <e p="Trinary Software" t="Include">
+            <e p="Timing.cs" t="Include" />
+          </e>
+        </e>
+        <e p="ProcessorAI.cs" t="Include" />
+        <e p="ProcessorMob.cs" t="Include" />
+        <e p="Source" t="Include">
+          <e p="Runtime" t="Include">
+            <e p="Common" t="Include">
+              <e p="Model.cs" t="Include" />
+              <e p="Tag.cs" t="Include" />
+            </e>
+            <e p="StarterGame.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Pixeye.Source.csproj" t="IncludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+    <e p="C:\Users\Begemoty\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Begemoty\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_AI-coroutines.602559.00" t="ExcludeRecursive" />
+  </component>
+</project>

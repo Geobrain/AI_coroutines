@@ -1,7 +1,6 @@
 ﻿using Pixeye.Actors;
 
-namespace Pixeye.Source
-{
+
 	// Welcome to the ACTORS.
 	// Use Tools->Actors->Update Actors to update version from github if you add Actors from manifest file.
 	// Use Tools->Actors->Set Release/Set Debug to toggle between release/debug versions of your project.
@@ -12,6 +11,10 @@ namespace Pixeye.Source
 		// use this method to provide processors and initializing stuff.
 		protected override void Setup()
 		{
+			Entity.Create(Model.Mob);
+			
+			Add<ProcessorMob>();
+			Add<ProcessorAI>();
 		}
 
 		// use thos method to perform "cleanup" before scene dies.
@@ -20,4 +23,4 @@ namespace Pixeye.Source
 			// clear buffer when the scene is removed
 		}
 	}
-}
+
