@@ -1,7 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using MEC;
 using Pixeye.Actors;
 using Time = Pixeye.Actors.time;
 
@@ -37,7 +37,7 @@ public static partial class UtilsComponent
     public static bool IsRunningBehaviour(this in ent entity)
     {
     	var cAI = entity.ComponentAI();
-        return cAI.arrBeh[cAI.indexActive].behaviourHandle.IsRunning;
+        return cAI.arrBeh[cAI.indexActive].behaviourHandle.isRunning;
     }
 
 	
@@ -45,7 +45,7 @@ public static partial class UtilsComponent
 	public static void KillBehaviour(this in ent entity)
 	{
 		var cAI = entity.ComponentAI();
-		Timing.KillCoroutines(cAI.arrBeh[cAI.indexActive].behaviourHandle);
+		cAI.arrBeh[cAI.indexActive].behaviourHandle.stop();
 	}
 	
 	
@@ -105,10 +105,10 @@ public struct Behaviour
     public Predicate<ent> predicateTrigger;
     
     // енумератор триггера
-	public Func<ent, int, IEnumerator<float>> enumeratorTrigger;
+	public Func<ent, int, IEnumerator> enumeratorTrigger;
 	
 	// енумератор поведения
-	public Func<ent, ent, int, IEnumerator<float>> enumeratorBehaviour;
+	public Func<ent, ent, int, IEnumerator> enumeratorBehaviour;
 	// Таргет для сущности - только если нужен
 	public ent entAnother;
 	
@@ -118,8 +118,8 @@ public struct Behaviour
 	
 	
 	// временные поля
-	public CoroutineHandle triggerHandle;
-	public CoroutineHandle behaviourHandle;
+	public coroutine triggerHandle;
+	public coroutine behaviourHandle;
 	
 	
 	public bool triggerOn;
@@ -153,7 +153,7 @@ public static partial class UtilsStruct
 		return newBeh;
 	}
 	
-	public static ref Behaviour AddBehaviour(this ComponentAI cAI, in int nameTag, Func<ent, ent, int, IEnumerator<float>> enumeratorBehaviour)
+	public static ref Behaviour AddBehaviour(this ComponentAI cAI, in int nameTag, Func<ent, ent, int, IEnumerator> enumeratorBehaviour)
 	{
 		var newBeh = Beh();
 		

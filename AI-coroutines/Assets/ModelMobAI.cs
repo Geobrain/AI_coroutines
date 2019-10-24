@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using MEC;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Pixeye.Actors;
 using Pixeye.Source;
 using UnityEngine;
@@ -30,13 +30,13 @@ sealed partial class ModelAI {
 		};
 		
 		
-		IEnumerator<float> AI_AAA(ent ent, ent entAnother = default, int behName = default)
+		IEnumerator AI_AAA(ent ent, ent entAnother = default, int behName = default)
 		{
 			var cMob = ent.ComponentMob();
 			do
 			{
 	            Debug.Log(cMob.aaa);
-				yield return Timing.WaitForOneFrame;
+	            yield return routines.waitFrame;
 			} while (ent.exist);
 		}
 		
@@ -54,7 +54,7 @@ sealed partial class ModelAI {
 			return true;
 		};
 		
-		IEnumerator<float> Trigger_AI_QQQ(ent ent, ent entAnother = default, int behName = default)
+		IEnumerator Trigger_AI_QQQ(ent ent, ent entAnother = default, int behName = default)
 		{
 			var check = false;
 			while (ent.exist && !check)
@@ -63,17 +63,17 @@ sealed partial class ModelAI {
 				{
 					ent.EnableBehaviour(Tag.AI_QQQ);
 				}
-				yield return Timing.WaitForOneFrame;
+				yield return routines.waitFrame;
 			}
 		}
 		
-		IEnumerator<float> AI_QQQ(ent ent, ent entAnother = default, int behName = default)
+		IEnumerator AI_QQQ(ent ent, ent entAnother = default, int behName = default)
 		{
 			var cMob = ent.ComponentMob();
 			while (ent.exist)
 			{
 				Debug.Log(cMob.qqq);
-				yield return Timing.WaitForOneFrame;
+				yield return routines.waitFrame;
 			}
 		}
 		
@@ -90,7 +90,7 @@ sealed partial class ModelAI {
 			return true;
 		};
 		
-		IEnumerator<float> Trigger_AI_WWW(ent ent, ent entAnother = default, int behName = default)
+		IEnumerator Trigger_AI_WWW(ent ent, ent entAnother = default, int behName = default)
 		{
 			var check = false;
 			while (ent.exist && !check)
@@ -99,11 +99,11 @@ sealed partial class ModelAI {
 				{
 					ent.EnableBehaviour(Tag.AI_WWW);
 				}
-				yield return Timing.WaitForOneFrame;
+				yield return routines.waitFrame;
 			}
 		}
 		
-		IEnumerator<float> AI_WWW(ent ent, ent entAnother = default, int behName = default)
+		IEnumerator AI_WWW(ent ent, ent entAnother = default, int behName = default)
 		{
 			var cMob = ent.ComponentMob();
 			var stop = false;
@@ -112,7 +112,7 @@ sealed partial class ModelAI {
 			do
 			{
 				Debug.Log(cMob.www);
-				yield return Timing.WaitForOneFrame;
+				yield return routines.waitFrame;
 			} while (ent.exist && !stop);
 		}
 		

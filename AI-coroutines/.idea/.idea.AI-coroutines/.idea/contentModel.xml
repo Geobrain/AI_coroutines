@@ -9,11 +9,6 @@
         <e p="Model.cs" t="Include" />
         <e p="ModelMob.cs" t="Include" />
         <e p="ModelMobAI.cs" t="Include" />
-        <e p="Plugins" t="Include">
-          <e p="Trinary Software" t="Include">
-            <e p="Timing.cs" t="Include" />
-          </e>
-        </e>
         <e p="ProcessorAI.cs" t="Include" />
         <e p="ProcessorMob.cs" t="Include" />
         <e p="Source" t="Include">

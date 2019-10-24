@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using MEC;
+//using MEC;
 using Pixeye.Actors;
 using Pixeye.Actors.Maths;
 using Pixeye.Source;
@@ -81,9 +81,9 @@ public class ProcessorAI : Processor, ITick
 									break;
 								
 								default:
-									if (beh.triggerHandle.IsRunning) break;
-									beh.triggerHandle = Timing.RunCoroutine(beh.enumeratorTrigger(entity, beh.nameTag));
-
+									if (beh.triggerHandle.isRunning) break;
+									//beh.triggerHandle = Timing.RunCoroutine(beh.enumeratorTrigger(entity, beh.nameTag));
+									beh.triggerHandle = routines.run(beh.enumeratorTrigger(entity, beh.nameTag));
 									break;
 							}
 							break;
@@ -105,9 +105,10 @@ public class ProcessorAI : Processor, ITick
 					{
 						ref var behTriggerHandle = ref cAI.arrBeh[j];
 						
-						if (behTriggerHandle.triggerHandle.IsRunning)
+						if (behTriggerHandle.triggerHandle.isRunning)
 						{
-                            Timing.KillCoroutines(behTriggerHandle.triggerHandle);
+							behTriggerHandle.triggerHandle.stop();
+                            //behTriggerHandle.KillCoroutines(behTriggerHandle.triggerHandle);
 						}
 					}
 					
@@ -120,7 +121,9 @@ public class ProcessorAI : Processor, ITick
 					// Запускаем поведение
 					cAI.indexActive = cAI.prioritetAI;
 					behCurrent = ref cAI.arrBeh[cAI.indexActive];
-					behCurrent.behaviourHandle = Timing.RunCoroutine(behCurrent.enumeratorBehaviour(entity, behCurrent.entAnother, behCurrent.nameTag));
+					//behCurrent.behaviourHandle = Timing.RunCoroutine(behCurrent.enumeratorBehaviour(entity, behCurrent.entAnother, behCurrent.nameTag));
+					behCurrent.behaviourHandle = routines.run(behCurrent.enumeratorBehaviour(entity, behCurrent.entAnother, behCurrent.nameTag));
+
 					
 					if (behCurrent.onTimerKillPreviousBehaviour) cAI.timeToAllNextBeh = 0f;
 					cAI.step++;
@@ -128,7 +131,7 @@ public class ProcessorAI : Processor, ITick
 				
 				case 3:
 					// ждем когда поведение закончит работу и перезапускаем его, если оно циклично
-					if (behCurrent.behaviourHandle.IsRunning) break;
+					if (behCurrent.behaviourHandle.isRunning) break;
 					if (cAI.prioritetAI != 127) cAI.prioritetAI = -1;
 					if (behCurrent.nameTag == Tag.AI_Death)  cAI.prioritetAI = 127;
 					cAI.step = 0;
