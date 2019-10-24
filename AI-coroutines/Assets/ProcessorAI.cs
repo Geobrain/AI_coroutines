@@ -82,7 +82,6 @@ public class ProcessorAI : Processor, ITick
 								
 								default:
 									if (beh.triggerHandle.isRunning) break;
-									//beh.triggerHandle = Timing.RunCoroutine(beh.enumeratorTrigger(entity, beh.nameTag));
 									beh.triggerHandle = routines.run(beh.enumeratorTrigger(entity, beh.nameTag));
 									break;
 							}
@@ -108,7 +107,6 @@ public class ProcessorAI : Processor, ITick
 						if (behTriggerHandle.triggerHandle.isRunning)
 						{
 							behTriggerHandle.triggerHandle.stop();
-                            //behTriggerHandle.KillCoroutines(behTriggerHandle.triggerHandle);
 						}
 					}
 					
@@ -121,7 +119,6 @@ public class ProcessorAI : Processor, ITick
 					// Запускаем поведение
 					cAI.indexActive = cAI.prioritetAI;
 					behCurrent = ref cAI.arrBeh[cAI.indexActive];
-					//behCurrent.behaviourHandle = Timing.RunCoroutine(behCurrent.enumeratorBehaviour(entity, behCurrent.entAnother, behCurrent.nameTag));
 					behCurrent.behaviourHandle = routines.run(behCurrent.enumeratorBehaviour(entity, behCurrent.entAnother, behCurrent.nameTag));
 
 					
