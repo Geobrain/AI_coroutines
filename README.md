@@ -1,5 +1,3 @@
-для работы требуется ассет More Effective Coroutines
-https://assetstore.unity.com/packages/tools/animation/more-effective-coroutines-free-54975
 
 Пример:
 запускается сцена AIstart.
